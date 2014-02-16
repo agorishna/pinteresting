@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th width="30%" ><center>User email</center></th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,9 +15,12 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.description %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><center><%= pin.user.try(:email) %></center></td>
+        <td><center><%= link_to 'Show', pin %></center></td>
+        <% if pin.user == current_user %>
+        <td><center><%= link_to 'Edit', edit_pin_path(pin) %></center></td>
+        <td><center><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +28,6 @@
 
 <br>
 
+<% if user_signed_in? %>
 <%= link_to 'New Pin', new_pin_path %>
+<% end %>
