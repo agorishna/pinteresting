@@ -9,9 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require 'masonry/transitions'
  *= require_tree .
  */
-.image_size {
-	height:20px;
-width:20px;
-}
