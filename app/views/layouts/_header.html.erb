@@ -14,13 +14,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     
         <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Travel", travel_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-home"></span> Home'), root_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-file"></span> About'), about_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-plane"></span> Travel'), travel_path %></li>
         <% if user_signed_in? %>
-        <li><%= link_to 'New Pin', new_pin_path %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-search"></span> New Pin'), new_pin_path %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-remove"></span> Sign out'), destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-wrench"></span> Account Settings'), edit_user_registration_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
